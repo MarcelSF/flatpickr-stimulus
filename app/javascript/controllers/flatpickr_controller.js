@@ -5,7 +5,7 @@ import flatpickr from "flatpickr";
 export default class extends Controller {
   static targets = [ "startTime", "endTime" ]
   connect() {
-    flatpickr(this.startTimeTarget, { altInput: true })
+    flatpickr(this.startTimeTarget, { altInput: true, enableTime: true })
     flatpickr(this.endTimeTarget, { altInput: true })
   }
 }

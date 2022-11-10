@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Welcome to our form</h1>
+  <%= form_with model: Appointment.new, authenticity_token: true do |f| %>
+    <%= f.text_field :start_time, data: { controller: "flatpickr", action: "change->flatpickr#setEndDate" } %>
+    <%= f.text_field :end_time, data: { controller: "flatpickr", flatpickr_target: "endDate" }, id: 'range_end' %>
+    <%= f.submit 'Schedule your appointment' %>
+  <% end %>
+
+  <ul>
+    <% @appointments.each do |appointment|%>
+      <li>
+      <%= appointment.id %>
+      <%= appointment.start_time %>
+      <%= appointment.end_time %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+

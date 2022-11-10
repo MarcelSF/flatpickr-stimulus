@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Welcome to our form</h1>
-  <%= form_with model: Appointment.new, authenticity_token: true do |f| %>
-    <%= f.text_field :start_time, data: { controller: "flatpickr", action: "change->flatpickr#setEndDate" } %>
-    <%= f.text_field :end_time, data: { controller: "flatpickr", flatpickr_target: "endDate" }, id: 'range_end' %>
+  <%= form_with model: Appointment.new, data: { controller: 'flatpickr' }, authenticity_token: true do |f| %>
+    <%= f.text_field :start_time, data: { flatpickr_target: "startTime" } %>
+    <%= f.text_field :end_time, data: { flatpickr_target: "endTime" } %>
     <%= f.submit 'Schedule your appointment' %>
   <% end %>
 

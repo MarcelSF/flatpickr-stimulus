@@ -1,20 +1,10 @@
 <div class="container w-50">
   <h1>Welcome to our form</h1>
-  <%= simple_form_for @appointment, data: { controller: 'flatpickr' }, authenticity_token: true do |f| %>
+  <%= simple_form_for @appointment, data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
     <%= f.submit 'Schedule your appointment' %>
   <% end %>
-
-  <ul>
-    <% @appointments.each do |appointment|%>
-      <li>
-      <%= appointment.id %>
-      <%= appointment.start_time %>
-      <%= appointment.end_time %>
-      </li>
-    <% end %>
-  </ul>
 </div>
 
 
